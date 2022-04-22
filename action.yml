@@ -1,0 +1,15 @@
+# action.yml
+name: 'Helm Lint'
+description: 'Performs Helm Lint on a given helm chart directory.'
+branding:
+  color: 'green'
+  icon: 'upload-cloud'
+inputs:
+  chart-folder:
+    description: 'Relative path to chart folder'
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    CHART_FOLDER: ${{ inputs.chart-folder }}
